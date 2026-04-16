@@ -1,0 +1,110 @@
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-tactical-dark text-gray-100 font-mono antialiased;
+    overflow: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(6, 182, 212, 0.3);
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(6, 182, 212, 0.5);
+  }
+}
+
+/* Camera feed scanline effect */
+.scanlines {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanlines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    transparent 50%,
+    rgba(6, 182, 212, 0.03) 50%
+  );
+  background-size: 100% 4px;
+  animation: scan 3s linear infinite;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.4), transparent);
+  animation: scanMove 3s linear infinite;
+  z-index: 4;
+}
+
+@keyframes scanMove {
+  0% { top: -2px; }
+  100% { top: 100%; }
+}
+
+/* Leaflet overrides for dark theme */
+.leaflet-container {
+  background: #0a0e17 !important;
+}
+
+.leaflet-control-zoom a {
+  background-color: rgba(17, 24, 39, 0.8) !important;
+  color: #06b6d4 !important;
+  border-color: rgba(55, 65, 81, 0.5) !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background-color: rgba(17, 24, 39, 0.95) !important;
+}
+
+/* Alert marker pulse */
+@keyframes alertPulse {
+  0% { r: 8; opacity: 0.8; }
+  100% { r: 20; opacity: 0; }
+}
+
+/* Drone alert flash */
+.drone-alert .drone-svg {
+  animation: droneFlash 0.5s ease-in-out 4;
+}
+
+@keyframes droneFlash {
+  0%, 100% { fill: #06b6d4; }
+  50% { fill: #ef4444; }
+}
