@@ -4,6 +4,10 @@ A real-time Ground Control Station (GCS) dashboard for monitoring drone fleets w
 
 ![Tech Stack](https://img.shields.io/badge/React-19-blue) ![Tech Stack](https://img.shields.io/badge/Tailwind-3-blue) ![Tech Stack](https://img.shields.io/badge/Leaflet-1.9-green) ![Tech Stack](https://img.shields.io/badge/YOLOv8-Backend-orange)
 
+
+
+<img width="1914" height="897" alt="image" src="https://github.com/user-attachments/assets/ddf5902e-deb9-468a-a696-03ed05c07c05" />
+
 ---
 
 ## Features
