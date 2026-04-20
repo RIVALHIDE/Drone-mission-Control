@@ -1,4 +1,4 @@
-# Drone Mission Control Dashboard
+# Multi-Drone GCS Dashboard (MAVLink + WebSockets)
 
 A real-time Ground Control Station (GCS) dashboard for monitoring drone fleets with AI-powered object detection. Built with React, Leaflet.js, and a Python/YOLOv8 backend.
 
